@@ -1,0 +1,24 @@
+{
+  "name": "ts-tests",
+  "version": "1.0.0",
+  "description": "TypeScript Test Framework",
+  "main": "index.js",
+  "scripts": {
+    "web-tests": "testcafe chrome tests/test.ts --reporter html:testcafe.html",
+    "api-tests": "newman run tests/test_api.postman_collection.json -e tests/env.postman_environment.json -r cli,html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no"
+  },
+  "keywords": [
+    "no"
+  ],
+  "author": "Eugene",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "newman": "^4.5.7",
+    "testcafe": "^1.8.1",
+    "testcafe-reporter-html": "^1.4.5"
+  }
+}

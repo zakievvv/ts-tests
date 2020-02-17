@@ -1,0 +1,478 @@
+{
+	"info": {
+		"_postman_id": "82d4182a-ac5d-479a-9648-9f513bfda82f",
+		"name": "Allergan API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Positive",
+			"item": [
+				{
+					"name": "POST user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "93d7a1ce-9ffb-487d-aa64-5d1f07ec6f6a",
+								"exec": [
+									"var username = pm.variables.get(\"username\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/javascript",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"First Name\": \"Bob\",\n    \"Last Name\": \"{{username}}\",\n    \"Email Address\": \"{{username}}@grr.la\",\n    \"Username\": \"{{username}}\",\n    \"Password\": \"{{password}}\",\n    \"Mobile Phone\": \"+5128176082\"\n}",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{env}}/user/",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{env}}/user",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{env}}/user/{{username}}/{{password}}",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user",
+								"{{username}}",
+								"{{password}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"First Name\": \"Bob\",\n    \"Last Name\": \"{{username}}\",\n    \"Email Address\": \"{{username}}@grr.la\",\n    \"Username\": \"{{username}}\",\n    \"Password\": \"{{password}}\",\n    \"Cell\":\"5128176082\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{env}}/user/{{username}}",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{env}}/user/{{username}}",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Negative",
+			"item": [
+				{
+					"name": "POST user Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is not 200\", function () {",
+									"    pm.response.to.not.have.status(200);",
+									"    ",
+									"    pm.test(\"Body is correct\", function () {",
+									"        pm.response.to.have.body(\"mobile phone is required\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "93d7a1ce-9ffb-487d-aa64-5d1f07ec6f6a",
+								"exec": [
+									"var username = pm.variables.get(\"username\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/javascript",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"First Name\": \"Bob\"\n}",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{env}}/user/",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET user Negative 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"    ",
+									"    pm.test(\"Body matches string\", function () {",
+									"        pm.expect(pm.response.text()).to.include(\"No user found with that username and password\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{env}}/user/wrong_user/wrong_password",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user",
+								"wrong_user",
+								"wrong_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET user Negative 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{env}}/user/{{username}}",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user",
+								"{{username}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT user Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{env}}/user/nonexistinguser",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user",
+								"nonexistinguser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a99290e-6390-400f-ae9a-26c1ea8a67f2",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{env}}/user/wrong_user",
+							"host": [
+								"{{env}}"
+							],
+							"path": [
+								"user",
+								"wrong_user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
