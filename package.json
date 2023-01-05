@@ -18,7 +18,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "newman": "^4.5.7",
-    "testcafe": "^1.8.1",
+    "testcafe": "^1.20.1",
     "testcafe-reporter-html": "^1.4.5"
   }
 }
